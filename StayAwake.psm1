@@ -115,7 +115,7 @@ function Stay-Awake {
     $pFlags = [Win32.Kernel32]::SetThreadExecutionState($esFlags)
 
     if ($pFlags) {
-        Write-Verbose "Execution state is set to ${esFlags}, replacing ${pFlags}."
+        Write-Verbose "Execution state is set to 0x$($esFlags.toString('X')), replacing 0x$($pFlags.toString('X'))."
 
         if ($Command) {
             Write-Verbose "Executing command ${Command} with arguments: ${Arguments}"
@@ -125,7 +125,7 @@ function Stay-Awake {
             [void](Read-Host "Press Enter to exit")
         }
 
-        Write-Verbose "Execution state is reset to ${pFlags}."
+        Write-Verbose "Execution state is reset to 0x$($pFlags.toString('X'))."
         [void][Win32.Kernel32]::SetThreadExecutionState($pFlags)
     }
     else {
