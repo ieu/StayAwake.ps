@@ -21,7 +21,7 @@ enum ExecutionState : uint32
  .DESCRIPTION
  See https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate for more details.
 
- .PARAMETER awayMode
+ .PARAMETER AwayMode
  Enables away mode.
  See https://blogs.msdn.microsoft.com/david_fleischman/2005/10/21/what-does-away-mode-do-anyway for more details.
 
@@ -56,7 +56,7 @@ enum ExecutionState : uint32
 
  .EXAMPLE
  # Reset the display idle timer.
- Stay-Awake --Discontinuous -Display
+ Stay-Awake -Discontinuous -Display
 
 #>
 function Stay-Awake {
